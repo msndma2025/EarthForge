@@ -12,8 +12,14 @@ Requires Python 3.10+.
 
 ```bash
 pip install git+https://github.com/msndma2025/EarthForge.git     # latest version from GitHub
-pip install earthforge                                            # from PyPI, once published
-pip install "earthforge[jupyter]"                                 # plus progress-bar widgets for Jupyter
+pip install pyearthforge                                          # from PyPI, once published
+pip install "pyearthforge[jupyter]"                               # plus progress-bar widgets for Jupyter
+```
+
+The package is installed as **`pyearthforge`** and imported as **`earthforge`**:
+
+```python
+from earthforge import raster, vector, cluster, pca
 ```
 
 Dependencies (installed automatically): `rasterio`, `numpy`, `matplotlib`, `tqdm`, `psutil`, `geopandas`, `pyogrio`, `shapely`, `pandas`, `pyproj`, `pyarrow`, `openpyxl`, `scikit-learn`. geopandas and scikit-learn are only imported when you use `vector`, `cluster` or `pca`.

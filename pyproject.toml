@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "earthforge"
+name = "pyearthforge"
 dynamic = ["version"]
 description = "Lazy, memory-efficient raster processing and visualization for GeoTIFFs, with vector support, clustering and PCA."
 readme = "README.md"

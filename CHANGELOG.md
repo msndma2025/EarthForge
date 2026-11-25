@@ -8,10 +8,11 @@ Nothing yet.
 
 ## [0.1.0] - 2026-11-25
 
-First public release, under the name **EarthForge** (`pip install earthforge`, `from earthforge import raster, vector, cluster, pca`). The package was developed under the working name `modules`; the entries below list everything it contains.
+First public release, under the name **EarthForge** (`pip install pyearthforge`, then `from earthforge import raster, vector, cluster, pca`). The package was developed under the working name `modules`; the entries below list everything it contains.
 
 ### Packaging
 - Renamed the package from `modules` to `earthforge`. Imports change from `from modules import ...` to `from earthforge import ...`, and `modules.FULL_TRACEBACKS` becomes `earthforge.FULL_TRACEBACKS`.
+- Distribution name on PyPI: `pyearthforge` (the name `earthforge` is taken there). The import name stays `earthforge`.
 - `pyproject.toml` with all dependencies, extras `[jupyter]` (progress-bar widgets) and `[docs]` (documentation tools), MIT license, and built wheels.
 
 ### Added

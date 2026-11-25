@@ -41,18 +41,18 @@ Select bands, do band math, compute indices with `normalizedDifference()` or `ex
 Requires Python 3.10+.
 
 ```bash
-pip install earthforge                     # once it is published on PyPI
-pip install earthforge[jupyter]            # plus progress-bar widgets for Jupyter
+pip install pyearthforge                   # once it is published on PyPI
+pip install "pyearthforge[jupyter]"        # plus progress-bar widgets for Jupyter
 ```
 
 Until then, install from GitHub or from a built wheel:
 
 ```bash
 pip install git+https://github.com/msndma2025/EarthForge.git
-pip install earthforge-0.1.0-py3-none-any.whl
+pip install pyearthforge-0.1.0-py3-none-any.whl
 ```
 
-Then: `from earthforge import raster, vector, cluster, pca`.
+The package is installed as `pyearthforge` and imported as `earthforge`: `from earthforge import raster, vector, cluster, pca`.
 
 ## Quick start
 
