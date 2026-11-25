@@ -1,0 +1,20 @@
+# built documentation site (rebuild with: mkdocs build)
+site/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# packaging output (rebuild with: python -m build)
+build/
+dist/
+*.egg-info/
+
+# local working files and outputs in the top folder (not part of the library)
+/*.ipynb
+/*.png
+/*.geojson
+/*.tif
+!/sampleImage1.tif
+/Pakistan Boundary.*

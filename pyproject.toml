@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthforge"
+dynamic = ["version"]
+description = "Lazy, memory-efficient raster processing and visualization for GeoTIFFs, with vector support, clustering and PCA."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "msndma2025" }]
+keywords = ["remote sensing", "raster", "geotiff", "gis", "rasterio", "ndvi", "satellite", "clustering", "pca", "mosaic"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "rasterio>=1.3",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "tqdm>=4.60",
+    "psutil>=5.9",
+    "pandas>=2.0",
+    "geopandas>=0.14",
+    "pyogrio>=0.7",
+    "shapely>=2.0",
+    "pyproj>=3.5",
+    "pyarrow>=12",
+    "openpyxl>=3.1",
+    "scikit-learn>=1.3",
+    "threadpoolctl>=3.1",
+]
+
+[project.optional-dependencies]
+jupyter = ["ipywidgets>=8"]
+docs = ["mkdocs-material>=9", "mkdocstrings[python]>=0.24"]
+
+[project.urls]
+Homepage = "https://github.com/msndma2025/EarthForge"
+Source = "https://github.com/msndma2025/EarthForge"
+Issues = "https://github.com/msndma2025/EarthForge/issues"
+Changelog = "https://github.com/msndma2025/EarthForge/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["earthforge"]
+
+[tool.setuptools.dynamic]
+version = { attr = "earthforge.__version__" }

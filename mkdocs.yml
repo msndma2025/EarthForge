@@ -1,0 +1,88 @@
+site_name: EarthForge
+repo_url: https://github.com/msndma2025/EarthForge
+repo_name: msndma2025/EarthForge
+site_description: Lazy, memory-efficient raster processing and visualization for GeoTIFFs, with vector support, built on rasterio and geopandas.
+docs_dir: docs
+site_dir: site
+
+nav:
+  - Home: index.md
+  - User guide:
+      - Images: raster.md
+      - Band math: band-math.md
+      - Expressions: expressions.md
+      - Reclassify & classes: reclassify.md
+      - Clustering: clustering.md
+      - PCA: pca.md
+      - Mosaic: mosaic.md
+      - Vector: vector.md
+      - Palettes & legends: palettes.md
+      - Memory & performance: performance.md
+      - Errors: errors.md
+      - Number helpers: math.md
+  - API reference: api.md
+  - Changelog: changelog.md
+
+theme:
+  name: material
+  icon:
+    logo: material/earth
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["."]
+          options:
+            docstring_style: numpy
+            show_source: false
+            show_root_heading: true
+            show_root_full_path: false
+            members_order: source
+            filters: ["!^_"]
+            separate_signature: true
+            show_signature_annotations: false
+            heading_level: 2

@@ -1,0 +1,2 @@
+# Tools to build the documentation website (mkdocs serve / mkdocs build).
+-e .[docs]

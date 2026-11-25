@@ -1,0 +1,2 @@
+# Installs EarthForge and all its dependencies from this folder (see pyproject.toml).
+-e .[jupyter]
