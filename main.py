@@ -1,4 +1,4 @@
-from earthforge import add, subtract, raster
+from pyearthforge import add, subtract, raster
 x = add(3,4)
 print(x)
 

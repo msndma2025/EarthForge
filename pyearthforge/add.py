@@ -13,7 +13,7 @@ def add(a, b):
 
     Examples
     --------
-    >>> from earthforge import add
+    >>> from pyearthforge import add
     >>> add(3, 4)
     7
     >>> add(img.select("B4").data, 100)      # NumPy array + number

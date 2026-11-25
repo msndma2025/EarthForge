@@ -1,7 +1,7 @@
 # `raster`: loading, selecting, saving and visualizing images
 
 ```python
-from earthforge import raster
+from pyearthforge import raster
 ```
 
 Related pages: [Band math](band-math.md) · [Expressions](expressions.md) · [Reclassify](reclassify.md) · [Mosaic](mosaic.md) · [Vector](vector.md) · [Palettes](palettes.md) · [Memory and performance](performance.md) · [Errors](errors.md)
@@ -287,7 +287,7 @@ The vector is reprojected to the image's CRS automatically. A pixel counts as in
 - `ValueError` if the vector is a table without geometries, has no CRS, or doesn't overlap the image.
 
 ```python
-from earthforge import raster, vector
+from pyearthforge import raster, vector
 
 img = raster.image("sampleImage1.tif")
 aoi = vector.Open("boundary.shp")
@@ -379,7 +379,7 @@ The library chooses automatically, and the result is identical either way. On a 
 | `img.pca(model, numPixels=10000, standardize=False, seed=0, region=None)` | A lazy image with bands `PC1`, `PC2`, ..., from a trained PCA or a number of components (trained inside `region` if given). |
 
 ```python
-from earthforge import cluster, pca
+from pyearthforge import cluster, pca
 
 trained = cluster.wekaKMeans(5).train(img, numPixels=5000)
 img.cluster(trained).visualize(labels={i: f"Cluster {i}" for i in range(5)})

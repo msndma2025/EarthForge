@@ -3,7 +3,7 @@
 `raster.mosaic()` combines many rasters (tiles, scenes, or computed images) into one image **without loading them into memory**. It works like a GDAL virtual raster (VRT): creating the mosaic reads only each file's metadata, and pixels are read later, only where and when they are needed.
 
 ```python
-from earthforge import raster
+from pyearthforge import raster
 
 m = raster.mosaic("tiles/")                    # every .tif in a folder
 m.meta()

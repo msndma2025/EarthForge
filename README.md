@@ -16,10 +16,10 @@ pip install pyearthforge                                          # from PyPI, o
 pip install "pyearthforge[jupyter]"                               # plus progress-bar widgets for Jupyter
 ```
 
-The package is installed as **`pyearthforge`** and imported as **`earthforge`**:
+The package is installed and imported as **`pyearthforge`**:
 
 ```python
-from earthforge import raster, vector, cluster, pca
+from pyearthforge import raster, vector, cluster, pca
 ```
 
 Dependencies (installed automatically): `rasterio`, `numpy`, `matplotlib`, `tqdm`, `psutil`, `geopandas`, `pyogrio`, `shapely`, `pandas`, `pyproj`, `pyarrow`, `openpyxl`, `scikit-learn`. geopandas and scikit-learn are only imported when you use `vector`, `cluster` or `pca`.
@@ -35,7 +35,7 @@ pip install -e ".[docs]"
 ## Quick start
 
 ```python
-from earthforge import raster, vector
+from pyearthforge import raster, vector
 
 img = raster.image("sampleImage1.tif")   # reads metadata only
 img.meta()                               # print metadata, including band names
@@ -66,7 +66,7 @@ veg = classes.selectClasses([2, 3])              # keep classes 2 and 3 only
 merged = classes.mergeClasses([2, 3], into=2)
 
 # Vectors: open, inspect, filter, add columns, join, clip
-from earthforge.vector import Filter
+from pyearthforge.vector import Filter
 stations = vector.Open("sample_data/stations.csv")             # 600 sample points
 stations.filter(Filter.eq("district", "North") & Filter.gt("rain_mm", 20)).show()
 stations = stations.map(lambda f: f.set({"rain_cm": f.get("rain_mm") / 10}))
@@ -82,7 +82,7 @@ img.geometry().save("extent.geojson")
 raster.mosaic("tiles/").save("mosaic.tif")
 
 # Clustering and PCA
-from earthforge import cluster, pca
+from pyearthforge import cluster, pca
 trained = cluster.wekaKMeans(5).train(img.select("B2", "B3", "B4", "B8"), numPixels=5000)
 img.cluster(trained).visualize(labels={i: f"Cluster {i}" for i in range(5)})
 pcs = img.pca(pca.PCA(3).train(img.select("B2", "B3", "B4", "B8", "B11", "B12")))
@@ -132,7 +132,7 @@ The same pages can also be read directly as Markdown:
 ## Package layout
 
 ```
-earthforge/
+pyearthforge/
 ├── __init__.py    # public API: add, subtract, raster, vector, cluster, pca, errors, FULL_TRACEBACKS
 ├── add.py
 ├── subtract.py
@@ -143,7 +143,11 @@ earthforge/
 └── _errors.py     # internal: short, clean error messages
 ```
 
-Everything listed in `earthforge/__init__.py` (`__all__`), plus the public names in `raster` (`image`, `mosaic`, `stack`, `Image`, `BandList`, `palettes`, `showPalettes`, `PALETTES`) and `vector` (`Open`, `layers`, `Vector`, `Feature`, `Filter`, `ColumnList`, `VectorNotFoundError`, `VectorReadError`), is public API. Names starting with `_` are internal and may change without notice.
+Everything listed in `pyearthforge/__init__.py` (`__all__`), plus the public names in `raster` (`image`, `mosaic`, `stack`, `Image`, `BandList`, `palettes`, `showPalettes`, `PALETTES`) and `vector` (`Open`, `layers`, `Vector`, `Feature`, `Filter`, `ColumnList`, `VectorNotFoundError`, `VectorReadError`), is public API. Names starting with `_` are internal and may change without notice.
+
+## Releasing
+
+New versions are published to PyPI automatically when a GitHub release is published. See [RELEASING.md](RELEASING.md).
 
 ## License
 

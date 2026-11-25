@@ -52,12 +52,12 @@ pip install git+https://github.com/msndma2025/EarthForge.git
 pip install pyearthforge-0.1.0-py3-none-any.whl
 ```
 
-The package is installed as `pyearthforge` and imported as `earthforge`: `from earthforge import raster, vector, cluster, pca`.
+The package is installed and imported as `pyearthforge`: `from pyearthforge import raster, vector, cluster, pca`.
 
 ## Quick start
 
 ```python
-from earthforge import raster
+from pyearthforge import raster
 
 img = raster.image("sampleImage1.tif")        # reads metadata only
 img.meta()
@@ -90,7 +90,7 @@ classes.visualize(labels={1: "Water / bare", 2: "Sparse", 3: "Moderate", 4: "Den
                   palette=["0000FF", "D2B48C", "9ACD32", "006400"])
 
 # Clip to a boundary and export the image extent
-from earthforge import vector
+from pyearthforge import vector
 aoi = vector.Open("boundary.shp")
 ndvi.clip(aoi).visualize(min=-0.2, max=0.8, palette="ndvi")
 img.geometry().save("extent.geojson")

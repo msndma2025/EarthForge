@@ -13,7 +13,7 @@ def subtract(a, b):
 
     Examples
     --------
-    >>> from earthforge import subtract
+    >>> from pyearthforge import subtract
     >>> subtract(10, 5)
     5
     >>> diff = subtract(img.select("B8").data, img.select("B4").data)   # NIR - Red as arrays

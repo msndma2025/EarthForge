@@ -1,7 +1,7 @@
 # Arithmetic helpers
 
 ```python
-from earthforge import add, subtract
+from pyearthforge import add, subtract
 ```
 
 ## `add(a, b)`
@@ -23,7 +23,7 @@ subtract(10, 5)   # 5
 Both functions work with any values that support `+` / `-`, including numbers and NumPy arrays:
 
 ```python
-from earthforge import raster, subtract
+from pyearthforge import raster, subtract
 img = raster.image("sampleImage1.tif")
 diff = subtract(img.select("B8").data, img.select("B4").data)   # NIR - Red, as an array
 ```

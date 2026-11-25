@@ -3,7 +3,7 @@
 Clustering (unsupervised classification) groups pixels or table rows with similar values, without training labels. You choose a method, **train** it on a sample, and **apply** it to an image or a dataset.
 
 ```python
-from earthforge import raster, cluster
+from pyearthforge import raster, cluster
 
 img = raster.image("sampleImage1.tif").select("B2", "B3", "B4", "B8", "B11", "B12")
 
@@ -172,7 +172,7 @@ img.cluster(trained)                                         # ...and apply ever
 Pass `region=` (any [vector](vector.md): a boundary, a district, a field) to learn the clusters from that area only. Every training pixel is drawn **inside** the shapes, and you still get the full `numPixels`. Regions in another CRS are reprojected automatically.
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 districts = vector.Open("sample_data/districts.geojson")
 central = districts.filter(vector.Filter.eq("district", "Central"))
@@ -200,7 +200,7 @@ Both forms give the same result. The clusters describe the land covers **of the 
 The region can be any geometry you define yourself. No file is needed (see [Creating your own geometries](vector.md#creating-your-own-geometries)):
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 # a rectangle from coordinates (longitude, latitude)
 box = vector.Rectangle(73.11, 33.69, 73.14, 33.71)
@@ -326,7 +326,7 @@ Cluster 2 has very low values in every band, including NIR (B8) and SWIR (B11, B
 Tables and vector datasets are clustered on their numeric columns. Because columns often have different units, use `normalize=True`.
 
 ```python
-from earthforge import vector, cluster
+from pyearthforge import vector, cluster
 
 stations = vector.Open("sample_data/stations.csv")
 trained = cluster.kMeans(4, normalize=True).train(

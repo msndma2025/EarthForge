@@ -1,7 +1,7 @@
 # `vector`: vector files and tables
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 ```
 
 Opens vector files (boundaries, points, lines) and tables, shows and filters their records, adds columns, joins datasets, and exports them. Vectors are used to [clip images](raster.md#imageclipgeometry-savefalse), and an image's extent is itself a vector ([`img.geometry()`](raster.md#imagegeometry)).
@@ -50,8 +50,8 @@ The folder `sample_data/` contains example datasets that cover the sample image,
 | `districts.geojson` | 5 district polygons (`district`, `code`, `zone_type`) covering the image. |
 
 ```python
-from earthforge import vector
-from earthforge.vector import Filter
+from pyearthforge import vector
+from pyearthforge.vector import Filter
 
 stations = vector.Open("sample_data/stations.csv")                      # 600 points
 districts = vector.Open("sample_data/districts.geojson")                # 5 polygons
@@ -132,7 +132,7 @@ You don't need a file to make a geometry. These functions create a `Vector` from
 The default CRS `"EPSG:4326"` means **longitude, latitude** in degrees, in that order (x = longitude). For projected coordinates pass the CRS, e.g. `crs="EPSG:32643"` for UTM zone 43N.
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 box = vector.Rectangle(73.11, 33.69, 73.14, 33.71)                    # lon/lat
 box_utm = vector.Rectangle(323500, 3729500, 326500, 3731500, crs="EPSG:32643")
@@ -315,7 +315,7 @@ stations.get(-1).get("station_id")         # 'ST0600'
 `Vector.filter(filter)` keeps the features that pass a condition. Build conditions with `Filter` and combine them with `&` (and), `|` (or) and `~` (not):
 
 ```python
-from earthforge.vector import Filter
+from pyearthforge.vector import Filter
 
 north = stations.filter(Filter.eq("district", "North"))
 wet = stations.filter(Filter.gt("rain_mm", 20))
@@ -478,7 +478,7 @@ with_zone.show(3, columns=["station_id", "code", "zone_type"])
 `Vector.cluster(clusterer, outputName="cluster", columns=None, region=None)` adds each row's cluster number. Give a trained clusterer, or an untrained one to train it on `columns` (only on the rows inside `region` if given). `Vector.pca(model, columns=None, standardize=False)` adds principal-component columns `PC1`, `PC2`, ... Rows with an empty input value get empty results. See [Clustering](clustering.md#clustering-tables) and [PCA](pca.md#vectorpcamodel-columnsnone-standardizefalse).
 
 ```python
-from earthforge import cluster
+from pyearthforge import cluster
 
 trained = cluster.kMeans(4, normalize=True).train(stations, inputProperties=["ndvi", "elevation_m", "temp_c"])
 grouped = stations.cluster(trained)

@@ -7,7 +7,7 @@ PCA turns many correlated bands or columns into a few uncorrelated **principal c
 - **reduce inputs** before [clustering](clustering.md).
 
 ```python
-from earthforge import raster, pca
+from pyearthforge import raster, pca
 
 img = raster.image("sampleImage1.tif").select("B2", "B3", "B4", "B8", "B11", "B12")
 
@@ -87,7 +87,7 @@ model = pca.PCA(2).train(img, inputProperties=["B4", "B8", "B11", "B12"], numPix
 Pass `region=` to learn the components from your study area only, for example a district, a field or a watershed. The model can then be applied to the region or to the whole image.
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 districts = vector.Open("sample_data/districts.geojson")
 central = districts.filter(vector.Filter.eq("district", "Central"))
@@ -105,7 +105,7 @@ local = img.pca(2, region=central)                   # train inside the region a
 The region can be any geometry you define yourself. No file is needed (see [Creating your own geometries](vector.md#creating-your-own-geometries)):
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 # a rectangle from coordinates (longitude, latitude)
 box = vector.Rectangle(73.11, 33.69, 73.14, 33.71)
@@ -197,7 +197,7 @@ The image must have the bands the model was trained on. Pixels with NoData in an
 Adds columns `PC1`, `PC2`, ... to a table or vector dataset.
 
 ```python
-from earthforge import vector
+from pyearthforge import vector
 
 stations = vector.Open("sample_data/stations.csv")
 with_pcs = stations.pca(2, columns=["ndvi", "elevation_m", "rain_mm", "temp_c"], standardize=True)
@@ -217,7 +217,7 @@ Rows with an empty value in any input column get empty components.
 Cluster on the first few components instead of many raw bands:
 
 ```python
-from earthforge import cluster
+from pyearthforge import cluster
 
 pcs = img.pca(pca.PCA(3).train(img))
 trained = cluster.kMeans(5).train(pcs, numPixels=5000)

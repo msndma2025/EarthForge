@@ -16,7 +16,7 @@ The library is designed so memory use depends on **what you look at or save**, n
 10. **Blocks are computed in parallel** on computers with several cores, within a memory budget. See [Many cores and lots of RAM](#many-cores-and-lots-of-ram).
 11. **Sampling reads only what it needs.** [`img.sample()`](raster.md#imagesample), which clustering and PCA use for training, reads only the small tiles that hold sampled pixels when samples are spread thinly over a large image, and whole blocks when they are dense. On a 200,000 × 200,000 mosaic, 5,000 samples read about 5,000 small tiles instead of all 38,000+ blocks.
 12. **Applying models is chunked.** Clusterers and PCA are applied to 262,144 pixels at a time, and the memory budget counts their inputs. When blocks run in parallel, numpy and scikit-learn are limited to one thread per worker.
-13. **Vectors load on demand.** `from earthforge import raster` doesn't import geopandas. It is loaded the first time you use `vector`, `clip()`, `geometry()` or `bounds(save=...)`.
+13. **Vectors load on demand.** `from pyearthforge import raster` doesn't import geopandas. It is loaded the first time you use `vector`, `clip()`, `geometry()` or `bounds(save=...)`.
 
 ## Many cores and lots of RAM
 
@@ -48,7 +48,7 @@ Parallel work pays off most for mosaics and calculations. When a job mostly writ
 Settings for big machines and special cases:
 
 ```python
-from earthforge import raster
+from pyearthforge import raster
 
 raster.MAX_WORKERS = 16                         # allow up to 16 workers by default
 m.save("mosaic.tif", workers=12)                # or choose for one save

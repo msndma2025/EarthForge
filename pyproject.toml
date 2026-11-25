@@ -49,7 +49,7 @@ Issues = "https://github.com/msndma2025/EarthForge/issues"
 Changelog = "https://github.com/msndma2025/EarthForge/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
-packages = ["earthforge"]
+packages = ["pyearthforge"]
 
 [tool.setuptools.dynamic]
-version = { attr = "earthforge.__version__" }
+version = { attr = "pyearthforge.__version__" }

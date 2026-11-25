@@ -3,7 +3,7 @@
 Arithmetic between images and numbers, band by band. Every operation returns a **new lazy `Image`**. Nothing is computed until you `visualize()`, `save()` or access `.data`.
 
 ```python
-from earthforge import raster
+from pyearthforge import raster
 img = raster.image("sampleImage1.tif")
 
 nir, red = img.select("B8"), img.select("B4")

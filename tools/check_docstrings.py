@@ -13,11 +13,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-import earthforge  # noqa: E402
-from earthforge import cluster, pca, raster, vector  # noqa: E402
+import pyearthforge  # noqa: E402
+from pyearthforge import cluster, pca, raster, vector  # noqa: E402
 
 TARGETS = {
-    "earthforge": [earthforge.add, earthforge.subtract],
+    "pyearthforge": [pyearthforge.add, pyearthforge.subtract],
     "raster": [raster.image, raster.mosaic, raster.stack, raster.palettes, raster.showPalettes],
     "vector": [vector.Open, vector.layers, vector.fromGeometry, vector.Rectangle, vector.Polygon, vector.Point],
     "cluster": [cluster.kMeans, cluster.wekaKMeans, cluster.wekaCascadeKMeans, cluster.wekaXMeans,

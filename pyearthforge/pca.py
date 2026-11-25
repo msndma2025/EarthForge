@@ -1,7 +1,7 @@
 # pca.py  -> principal component analysis for images and tables
 #
 # Usage:
-#   from earthforge import raster, pca
+#   from pyearthforge import raster, pca
 #   img = raster.image("sampleImage1.tif").select("B2", "B3", "B4", "B8", "B11", "B12")
 #   model = pca.PCA(3).train(img, numPixels=10000)
 #   model.info()                       # explained variance per component

@@ -230,10 +230,10 @@ def build():
         sections.append(f'<section class="doc" data-page="{pid}" hidden>{eyebrow}{body}'
                         f'<nav class="pager">{"".join(pager)}</nav></section>')
 
-    import earthforge
+    import pyearthforge
     data = {"pages": nav, "index": index}
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    meta = (f"v{earthforge.__version__} · built {datetime.date.today().isoformat()} · "
+    meta = (f"v{pyearthforge.__version__} · built {datetime.date.today().isoformat()} · "
             f"{len(index)} searchable sections")
     return (TEMPLATE.replace("__CONTENT__", "\n".join(sections))
                     .replace("__DATA__", data_json)

@@ -1,7 +1,7 @@
 # vector.py  -> a MODULE for reading vector files and tables, built on geopandas
 #
 # Usage:
-#   from earthforge import vector
+#   from pyearthforge import vector
 #   aoi = vector.Open("boundary.shp")      # shp, geojson, kml, kmz, gpkg, parquet, csv, xlsx
 #   aoi.meta()                             # summary: features, geometry type, CRS, columns
 #   aoi.columns()                          # column names
@@ -277,7 +277,7 @@ class Filter:
 
     Examples
     --------
-    >>> from earthforge.vector import Filter
+    >>> from pyearthforge.vector import Filter
     >>> wet = stations.filter(Filter.gt("rain_mm", 20))
     >>> north_forest = stations.filter(Filter.eq("district", "North") & Filter.eq("land_cover", "forest"))
     >>> stations.filter(Filter.inList("district", ["North", "East"]) | ~Filter.notNull("rain_mm"))
@@ -891,7 +891,7 @@ class Vector:
 
         Examples
         --------
-        >>> from earthforge.vector import Filter
+        >>> from pyearthforge.vector import Filter
         >>> wet = stations.filter(Filter.gt("rain_mm", 20))
         >>> stations.filter(Filter.eq("district", "North") & Filter.gte("ndvi", 0.4)).size()
         """

@@ -3,7 +3,7 @@
 # Errors raised by the library's own code are re-raised without the library's
 # internal frames. In Jupyter / IPython only the user's code line and the
 # message are shown. The errors keep their normal classes (ValueError, ...).
-# Set `earthforge.FULL_TRACEBACKS = True` to see the internal frames when debugging.
+# Set `pyearthforge.FULL_TRACEBACKS = True` to see the internal frames when debugging.
 
 import functools
 import os

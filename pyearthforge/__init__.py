@@ -1,6 +1,6 @@
 """EarthForge: lazy, memory-efficient raster processing and visualization for GeoTIFFs.
 
-    from earthforge import raster, vector, cluster, pca
+    from pyearthforge import raster, vector, cluster, pca
 
     img = raster.image("scene.tif")
     ndvi = img.normalizedDifference(["B8", "B4"]).rename("NDVI")
@@ -15,9 +15,9 @@ from .subtract import subtract
 from . import raster          # exposes the whole raster MODULE, so you call raster.image(), raster.meta()
 from .raster import RasterNotFoundError, RasterReadError
 
-# `vector`, `cluster` and `pca` are NOT imported here, so `from earthforge import raster`
+# `vector`, `cluster` and `pca` are NOT imported here, so `from pyearthforge import raster`
 # stays fast (geopandas / scikit-learn are only loaded when you use them).
-# `from earthforge import vector, cluster, pca` still works: Python imports them on demand.
+# `from pyearthforge import vector, cluster, pca` still works: Python imports them on demand.
 
 # Set to True to see the library's internal frames in tracebacks (for debugging).
 FULL_TRACEBACKS = False

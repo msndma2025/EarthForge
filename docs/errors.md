@@ -15,7 +15,7 @@ ValueError: Band 'B8' not found. This image has: ['B4']
 In a plain Python script, one short library line remains (`raise error...`) because standard Python always shows the frame that raised the error.
 
 ```python
-from earthforge import RasterNotFoundError, RasterReadError
+from pyearthforge import RasterNotFoundError, RasterReadError
 ```
 
 | Exception | Subclass of | Raised by | Cause |
@@ -28,7 +28,7 @@ from earthforge import RasterNotFoundError, RasterReadError
 | `TypeError` | – | band math, `addBands()`, `where()`, `expression()`, `updateMask()`, `clip()`, `visualize()`, `if img:` | Wrong type of operand, rule, mask, map value or geometry; an `Image` used as a True/False value. |
 
 ```python
-from earthforge.vector import VectorNotFoundError, VectorReadError
+from pyearthforge.vector import VectorNotFoundError, VectorReadError
 ```
 
 ## Messages
@@ -244,7 +244,7 @@ TypeError: Give band names or numbers here (e.g. 'B8' or 8), not an Image. To sh
 Because `RasterNotFoundError` subclasses `FileNotFoundError`, either one can be caught:
 
 ```python
-from earthforge import raster, RasterNotFoundError
+from pyearthforge import raster, RasterNotFoundError
 
 try:
     img = raster.image("missing.tif")
@@ -270,8 +270,8 @@ ndvi.gt(0.2).and_(ndvi.lte(0.3))    # also correct (lowercase spelling)
 To see the library's internal frames in tracebacks (useful when reporting a bug):
 
 ```python
-import earthforge
-earthforge.FULL_TRACEBACKS = True
+import pyearthforge
+pyearthforge.FULL_TRACEBACKS = True
 ```
 
 Errors that come from other packages (numpy, rasterio, matplotlib) always keep their full traceback.

@@ -9,7 +9,7 @@
 #       .data        -> reads everything at full resolution (uses the most RAM)
 #
 # Usage:
-#   from earthforge import raster
+#   from pyearthforge import raster
 #   img  = raster.image("sampleImage1.tif")
 #   ndvi = img.normalizedDifference(["B8", "B4"]).rename("NDVI")
 #   ndvi.visualize(min=-0.2, max=0.8, palette="ndvi")
@@ -1518,7 +1518,7 @@ class Image:
 
         Examples
         --------
-        >>> from earthforge import raster, vector
+        >>> from pyearthforge import raster, vector
         >>> aoi = vector.Open("boundary.shp")
         >>> clipped = img.clip(aoi)
         >>> img.normalizedDifference(["B8", "B4"]).clip(aoi, save="ndvi_aoi.tif")

@@ -1,91 +1,91 @@
 # API reference
 
-Generated automatically from the docstrings in `earthforge/raster.py`, `earthforge/vector.py`, `earthforge/cluster.py` and `earthforge/pca.py`. For explanations and examples, see the user guide pages.
+Generated automatically from the docstrings in `pyearthforge/raster.py`, `pyearthforge/vector.py`, `pyearthforge/cluster.py` and `pyearthforge/pca.py`. For explanations and examples, see the user guide pages.
 
 ## raster
 
 ### Functions
 
-::: earthforge.raster.image
+::: pyearthforge.raster.image
 
-::: earthforge.raster.mosaic
+::: pyearthforge.raster.mosaic
 
-::: earthforge.raster.stack
+::: pyearthforge.raster.stack
 
-::: earthforge.raster.palettes
+::: pyearthforge.raster.palettes
 
-::: earthforge.raster.showPalettes
+::: pyearthforge.raster.showPalettes
 
 ### Classes
 
-::: earthforge.raster.Image
+::: pyearthforge.raster.Image
 
-::: earthforge.raster.BandList
+::: pyearthforge.raster.BandList
 
 ### Exceptions
 
-::: earthforge.raster.RasterNotFoundError
+::: pyearthforge.raster.RasterNotFoundError
 
-::: earthforge.raster.RasterReadError
+::: pyearthforge.raster.RasterReadError
 
 ## vector
 
 ### Functions
 
-::: earthforge.vector.Open
+::: pyearthforge.vector.Open
 
-::: earthforge.vector.layers
+::: pyearthforge.vector.layers
 
-::: earthforge.vector.fromGeometry
+::: pyearthforge.vector.fromGeometry
 
-::: earthforge.vector.Rectangle
+::: pyearthforge.vector.Rectangle
 
-::: earthforge.vector.Polygon
+::: pyearthforge.vector.Polygon
 
-::: earthforge.vector.Point
+::: pyearthforge.vector.Point
 
 ### Classes
 
-::: earthforge.vector.Vector
+::: pyearthforge.vector.Vector
 
-::: earthforge.vector.Feature
+::: pyearthforge.vector.Feature
 
-::: earthforge.vector.Filter
+::: pyearthforge.vector.Filter
 
-::: earthforge.vector.ColumnList
+::: pyearthforge.vector.ColumnList
 
 ## cluster
 
 ### Methods
 
-::: earthforge.cluster.kMeans
+::: pyearthforge.cluster.kMeans
 
-::: earthforge.cluster.wekaKMeans
+::: pyearthforge.cluster.wekaKMeans
 
-::: earthforge.cluster.wekaCascadeKMeans
+::: pyearthforge.cluster.wekaCascadeKMeans
 
-::: earthforge.cluster.wekaXMeans
+::: pyearthforge.cluster.wekaXMeans
 
-::: earthforge.cluster.miniBatchKMeans
+::: pyearthforge.cluster.miniBatchKMeans
 
-::: earthforge.cluster.bisectingKMeans
+::: pyearthforge.cluster.bisectingKMeans
 
-::: earthforge.cluster.gaussianMixture
+::: pyearthforge.cluster.gaussianMixture
 
 ### Classes
 
-::: earthforge.cluster.Clusterer
+::: pyearthforge.cluster.Clusterer
 
-::: earthforge.cluster.TrainedClusterer
+::: pyearthforge.cluster.TrainedClusterer
 
 ## pca
 
-::: earthforge.pca.PCA
+::: pyearthforge.pca.PCA
 
-::: earthforge.pca.TrainedPCA
+::: pyearthforge.pca.TrainedPCA
 
 ### Exceptions
 
-::: earthforge.vector.VectorNotFoundError
+::: pyearthforge.vector.VectorNotFoundError
 
-::: earthforge.vector.VectorReadError
+::: pyearthforge.vector.VectorReadError

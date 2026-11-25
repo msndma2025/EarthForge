@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project are listed here. Versions follow `__version__` in `earthforge/__init__.py`.
+All notable changes to this project are listed here. Versions follow `__version__` in `pyearthforge/__init__.py`.
 
 ## [Unreleased]
 
@@ -8,11 +8,12 @@ Nothing yet.
 
 ## [0.1.0] - 2026-11-25
 
-First public release, under the name **EarthForge** (`pip install pyearthforge`, then `from earthforge import raster, vector, cluster, pca`). The package was developed under the working name `modules`; the entries below list everything it contains.
+First public release, under the name **EarthForge** (`pip install pyearthforge`, then `from pyearthforge import raster, vector, cluster, pca`). The package was developed under the working name `modules`; the entries below list everything it contains.
 
 ### Packaging
-- Renamed the package from `modules` to `earthforge`. Imports change from `from modules import ...` to `from earthforge import ...`, and `modules.FULL_TRACEBACKS` becomes `earthforge.FULL_TRACEBACKS`.
-- Distribution name on PyPI: `pyearthforge` (the name `earthforge` is taken there). The import name stays `earthforge`.
+- Renamed the package from `modules` to `pyearthforge`. Imports change from `from modules import ...` to `from pyearthforge import ...`, and `modules.FULL_TRACEBACKS` becomes `pyearthforge.FULL_TRACEBACKS`.
+- Installed and imported as `pyearthforge` (`pip install pyearthforge`, `from pyearthforge import ...`). The project is called EarthForge; the `py` prefix keeps it apart from an unrelated `earthforge` package on PyPI.
+- GitHub Action `.github/workflows/publish.yml` builds and publishes to PyPI when a GitHub release is published (trusted publishing, no tokens), with a manual TestPyPI run.
 - `pyproject.toml` with all dependencies, extras `[jupyter]` (progress-bar widgets) and `[docs]` (documentation tools), MIT license, and built wheels.
 
 ### Added
@@ -28,8 +29,8 @@ First public release, under the name **EarthForge** (`pip install pyearthforge`,
 - **Sparse sampling:** when samples are spread thinly over a large image, `sample()` (and so clustering/PCA training) reads only the small tiles that hold samples instead of whole blocks. Results are identical. On a 2.9 GB raster, 2,000 samples took 2.2 s and 1 MB instead of 3.1–5.6 s and about 110 MB. On a 200,000 × 200,000 mosaic it reads about 5,000 tiles instead of every block.
 - When blocks run in parallel, numpy and scikit-learn are limited to one thread per worker (threadpoolctl), so they don't compete with the workers for cores.
 
-- **Clustering** (`from earthforge import cluster`): `kMeans`, `wekaKMeans` (random, k-means++ or farthest-first start; Euclidean or Manhattan distance), `wekaCascadeKMeans` (chooses k by Calinski–Harabasz), `wekaXMeans` (chooses k by BIC), `miniBatchKMeans`, `bisectingKMeans` and `gaussianMixture`. Train with `.train(img or vector)`, apply with `img.cluster(trained)` (lazy, saved as uint8) or `vector.cluster(trained)`. `TrainedClusterer` has `info()`, `centers()`, `schema()` and `nClusters`.
-- **PCA** (`from earthforge import pca`): `pca.PCA(nComponents, standardize).train(...)`, applied with `img.pca(model)` or `vector.pca(model)`. Reports `explainedVariance()` and `loadings()`, and matches scikit-learn.
+- **Clustering** (`from pyearthforge import cluster`): `kMeans`, `wekaKMeans` (random, k-means++ or farthest-first start; Euclidean or Manhattan distance), `wekaCascadeKMeans` (chooses k by Calinski–Harabasz), `wekaXMeans` (chooses k by BIC), `miniBatchKMeans`, `bisectingKMeans` and `gaussianMixture`. Train with `.train(img or vector)`, apply with `img.cluster(trained)` (lazy, saved as uint8) or `vector.cluster(trained)`. `TrainedClusterer` has `info()`, `centers()`, `schema()` and `nClusters`.
+- **PCA** (`from pyearthforge import pca`): `pca.PCA(nComponents, standardize).train(...)`, applied with `img.pca(model)` or `vector.pca(model)`. Reports `explainedVariance()` and `loadings()`, and matches scikit-learn.
 - `Image.sample(numPixels, seed)` returns random pixels as a dataset, reading only the blocks that contain them.
 - `Vector.columnNames()` returns column names, like `bandNames()` for images.
 - Trained models are applied in chunks of 262,144 pixels, and the memory budget accounts for them: clustering an 8000 × 8000 × 4 raster peaks at 60 MB with one worker.
@@ -71,7 +72,7 @@ First public release, under the name **EarthForge** (`pip install pyearthforge`,
 
 ### Changed
 - **`Image.bounds` is now a method: `bounds(save=False)`.** It returns the same `BoundingBox`, and `save=True` (or a path) also writes the box as GeoJSON. Replace `img.bounds.left` with `img.bounds().left`.
-- `FULL_TRACEBACKS` moved to the package: `import earthforge; earthforge.FULL_TRACEBACKS = True`.
+- `FULL_TRACEBACKS` moved to the package: `import pyearthforge; pyearthforge.FULL_TRACEBACKS = True`.
 
 ### Added (earlier)
 - `Image.expression(expression, map)` evaluates text formulas (also available as `Image.Expression`). Variables come from `map`, band names can be used directly, and `b('name')` / `b(index)` select bands. Supports `+ - * / **`, comparisons, `&& || !` / `and or not`, and `abs sqrt log log10 exp`. Parsed safely with `ast`, never `eval`.

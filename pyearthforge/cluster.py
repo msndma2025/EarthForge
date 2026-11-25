@@ -1,7 +1,7 @@
 # cluster.py  -> unsupervised classification (clustering) for images and tables
 #
 # Usage:
-#   from earthforge import raster, cluster
+#   from pyearthforge import raster, cluster
 #   img = raster.image("sampleImage1.tif").select("B2", "B3", "B4", "B8")
 #   clusterer = cluster.wekaKMeans(5).train(img, numPixels=5000)   # learn from a sample
 #   clusters = img.cluster(clusterer)                              # lazy: one band "cluster"
